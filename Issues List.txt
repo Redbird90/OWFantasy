@@ -1,0 +1,4 @@
+Issue List for Fantasy App
+	1.  Need to determine if user has already been registered or new (likely determine from saved data in phone storage)
+	2.  Need to determine method to save and store data online for access later
+	3.  N

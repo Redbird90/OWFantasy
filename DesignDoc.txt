@@ -1,0 +1,4 @@
+Design Doc for Fantasy App
+User Profile functionality to store all user data, accessed from online server
+Create unique user login screen with dynamic views
+Create survey to gauge interest in other esports
