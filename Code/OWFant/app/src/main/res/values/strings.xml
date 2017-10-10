@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">OWFant</string>
+    <string name="playername_default">Player Name</string>
+    <string name="playerpoints_default">0.0</string>
+    <string name="player_hero_imgview_content_description">Hero picture</string>
+    <string name="player_role_imgview_content_description">Role picture</string>
+    <string name="playerteam_default">Team</string>
+    <string name="player_natl_imgview_content_description">Nationality picture</string>
+</resources>
