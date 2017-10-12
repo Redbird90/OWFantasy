@@ -1,5 +1,6 @@
 package studio.jkt.com.owfant;
 
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.LinearLayout;
@@ -10,6 +11,8 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     TabHost mainTabHost;
+    ViewPager mViewPager;
+    FantasyFragmentPagerAdapter mFantFragmentPagerAdapter;
     LinearLayout myTeamLinLay;
     LinearLayout vsLinLay;
     LinearLayout availablePlayersLinLay;
@@ -21,8 +24,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mainTabHost = (TabHost) findViewById(R.id.mainTabHostLay);
-        myTeamLinLay = (LinearLayout) mainTabHost.findViewById(R.id.myteam_tab);
+        mFantFragmentPagerAdapter =
+                new FantasyFragmentPagerAdapter(getSupportFragmentManager());
+        mViewPager = (ViewPager) findViewById(R.id.pager);
+        mViewPager.setAdapter(mFantFragmentPagerAdapter);
+
 
     }
 
@@ -34,3 +40,4 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 }
+
