@@ -6,4 +6,6 @@
     <string name="player_role_imgview_content_description">Role picture</string>
     <string name="playerteam_default">Team</string>
     <string name="player_natl_imgview_content_description">Nationality picture</string>
+    <string name="myteamname_default">My Team</string>
+    <string name="myteamrecord_default">Team Record</string>
 </resources>

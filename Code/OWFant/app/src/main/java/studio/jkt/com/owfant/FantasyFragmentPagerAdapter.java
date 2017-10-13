@@ -12,7 +12,12 @@ class FantasyFragmentPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return null;
+        if (position == 0) {
+            Fragment currTeamFragment = new MyTeamFragment();
+            return currTeamFragment;
+        } else {
+            return null;
+        }
     }
 
     @Override
