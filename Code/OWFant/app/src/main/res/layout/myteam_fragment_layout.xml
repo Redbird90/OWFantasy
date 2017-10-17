@@ -8,13 +8,16 @@
         android:id="@+id/myteam_title_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
         android:text="@string/myteamname_default" />
 
     <TextView
         android:id="@+id/myteam_record_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/myteam_title_tv"
+        android:layout_toEndOf="@id/myteam_title_tv"
         android:text="@string/myteamrecord_default" />
 
 </RelativeLayout>

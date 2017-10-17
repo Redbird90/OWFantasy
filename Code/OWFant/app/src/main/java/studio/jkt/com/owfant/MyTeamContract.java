@@ -14,17 +14,25 @@ public interface MyTeamContract {
 
         void setTeamRecord(String record);
 
+        boolean isActive();
+
     }
 
     interface PlayerDetailView extends BaseView<PlayerDetailPresenter> {
 
         void setPlayerName(String playerName);
 
+        void setPlayerTotalPoints(String points);
+
+        boolean isActive();
+
+    }
+
+    interface OWPlayerDetailView extends PlayerDetailView {
+
         void setPlayerHeroPicture(Drawable heroPicture);
 
         void setPlayerRolePicture(Drawable rolePicture);
-
-        void setPlayerTotalPoints(String points);
 
         void setPlayerTeamName(String teamName);
 
@@ -34,19 +42,13 @@ public interface MyTeamContract {
 
     interface OverallPresenter extends BasePresenter {
 
-        void changeName(String name);
+        void changeName();
 
     }
 
     interface PlayerDetailPresenter extends BasePresenter {
 
-        void dropPlayer(String playerId);
-
-        void addPlayer(String playerId);
-
-        void tradePlayers(String playerIdToDrop, String playerIdToPickUp);
-
-        void movePlayers(String playerIdOne, String playerIdTwo);
+        void editPlayer();
 
     }
 }
