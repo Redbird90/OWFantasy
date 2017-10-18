@@ -9,10 +9,10 @@ import android.support.annotation.NonNull;
 public abstract class MyTeamPlayerDetailPresenter implements MyTeamContract.PlayerDetailPresenter {
 
     @NonNull
-    private final MyTeamContract.PlayerDetailView mPlayerDetailView;
+    protected final MyTeamContract.PlayerDetailView mPlayerDetailView;
 
-    private String mPlayerName;
-    private String mPlayerTotalPts;
+    protected String mPlayerName;
+    protected String mPlayerTotalPts;
 
     public MyTeamPlayerDetailPresenter(String playerName, String playerTotalPts, @NonNull MyTeamContract.PlayerDetailView playerDetailView) {
         mPlayerName = playerName;

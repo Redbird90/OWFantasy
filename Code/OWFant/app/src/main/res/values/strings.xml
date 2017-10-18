@@ -8,4 +8,7 @@
     <string name="player_natl_imgview_content_description">Nationality picture</string>
     <string name="myteamname_default">My Team</string>
     <string name="myteamrecord_default">Team Record</string>
+    <string name="playerheroid_default">0</string>
+    <string name="playerroleid_default">0</string>
+    <string name="playernatlid_default">0</string>
 </resources>

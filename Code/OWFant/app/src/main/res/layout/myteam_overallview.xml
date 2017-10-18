@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/myteam_linlay"
+    android:id="@+id/myteam_rellay"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/myteam_title_tv"
@@ -16,8 +16,17 @@
         android:id="@+id/myteam_record_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/myteam_title_tv"
         android:layout_toEndOf="@id/myteam_title_tv"
+        android:layout_toRightOf="@id/myteam_title_tv"
         android:text="@string/myteamrecord_default" />
+
+    <LinearLayout
+        android:id="@+id/myteam_linlay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/myteam_title_tv"
+        android:orientation="vertical">
+
+    </LinearLayout>
 
 </RelativeLayout>
