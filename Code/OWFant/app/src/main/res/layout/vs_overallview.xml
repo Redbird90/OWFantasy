@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/vs_rellay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+    <LinearLayout
+        android:layout_width="ma"
+        android:layout_height=""></LinearLayout>
+
+    <TextView
+        android:id="@+id/vs_userteam_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:text="@string/myteamname_default"/>
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/vs_userteam_title_tv"
+        android:layout_toRightOf="@id/vs_userteam_title_tv"
+        android/>
+
+</RelativeLayout>

@@ -35,7 +35,6 @@ public class MyTeamPlayerDetailFragment extends Fragment implements MyTeamContra
         View rootView = inflater.inflate(R.layout.myteam_playerview, container, false);
         myTeamPlayerNameTV = (TextView) rootView.findViewById(R.id.myteam_player_name_tv);
         myTeamPlayerTotalPointsTV = (TextView) rootView.findViewById(R.id.myteam_player_points_tv);
-
         return rootView;
 
     }

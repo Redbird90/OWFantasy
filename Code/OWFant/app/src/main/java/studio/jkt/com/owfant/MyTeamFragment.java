@@ -30,12 +30,10 @@ public class MyTeamFragment extends android.support.v4.app.Fragment implements
     @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
         View rootView = inflater.inflate(R.layout.myteam_overallview, container, false);
         myTeamTitleTV = (TextView) rootView.findViewById(R.id.myteam_title_tv);
         myTeamRecordTV = (TextView) rootView.findViewById(R.id.myteam_record_tv);
-        // Get number of players in team to inflate as well as all team and player info
-        //Bundle args = getArguments();
-        //numOfPlayers = args.getInt()
         return rootView;
 
     }
