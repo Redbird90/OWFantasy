@@ -1,6 +1,5 @@
 package studio.jkt.com.owfant;
 
-import android.app.ActionBar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -18,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
     private String LOG_TAG = "MainAct";
 
     private ViewPager mViewPager;
-    private FantasyFragmentPagerAdapter mFantFragmentPagerAdapter;
     private LinearLayout myTeamLinLay;
     private LinearLayout vsLinLay;
     private LinearLayout availablePlayersLinLay;
@@ -40,15 +38,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /*mFantFragmentPagerAdapter =
-                new FantasyFragmentPagerAdapter(getSupportFragmentManager());
-        mViewPager = (ViewPager) findViewById(R.id.pager);
-        mViewPager.setAdapter(mFantFragmentPagerAdapter);*/
-
         LeagueTypes currLeagueType = LeagueTypes.OVERWATCH;
 
+        Log.i(LOG_TAG, "setting up toolbar and tabs");
         Toolbar mainToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mainToolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().hide();
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText(R.string.tab_myteam_name));
@@ -56,14 +52,33 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.addTab(tabLayout.newTab().setText(R.string.tab_players_name));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.tab_league_name));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+        Log.i(LOG_TAG, "toolbar added");
 
         mViewPager = (ViewPager) findViewById(R.id.pager);
-        mFantFragmentPagerAdapter = new FantasyFragmentPagerAdapter(getSupportFragmentManager());
-        mViewPager.setAdapter(mFantFragmentPagerAdapter);
-        mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        mViewPager.setAdapter(new FantasyFragmentPagerAdapter(getSupportFragmentManager()));
+        //tabLayout.setupWithViewPager(mViewPager);
+        //mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                Log.i(LOG_TAG, "onPageSelected, position is " + String.valueOf(position));
+                mViewPager.setCurrentItem(position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
+                Log.i(LOG_TAG, "onTabSelected, position is " + String.valueOf(tab.getPosition()));
                 mViewPager.setCurrentItem(tab.getPosition());
             }
 
@@ -77,36 +92,22 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-/*        final ActionBar actionBar = getActionBar();
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-        ActionBar.TabListener tabListener = new ActionBar.TabListener() {
-            @Override
-            public void onTabSelected(ActionBar.Tab tab, android.app.FragmentTransaction fragmentTransaction) {
-
-            }
-
-            @Override
-            public void onTabUnselected(ActionBar.Tab tab, android.app.FragmentTransaction fragmentTransaction) {
-
-            }
-
-            @Override
-            public void onTabReselected(ActionBar.Tab tab, android.app.FragmentTransaction fragmentTransaction) {
-
-            }
-        }*/
+        Log.i(LOG_TAG, "viewpager linked to adapter and listener added");
 
         FragmentManager suppFragmentManager = getSupportFragmentManager();
         MyTeamFragment mMyTeamFragment = (MyTeamFragment)
-                suppFragmentManager.findFragmentById(R.id.tab_layout);
+                suppFragmentManager.findFragmentById(R.id.content_frame);
 
+        Log.i(LOG_TAG, "Checking for MyTeamFrag in content_frame...");
         if (mMyTeamFragment == null) {
+            Log.i(LOG_TAG, "MyTeamFrag not found in content_frame.");
             mMyTeamFragment = mMyTeamFragment.newInstance();
 
             FragmentTransaction transaction = suppFragmentManager.beginTransaction();
-            transaction.add(R.id.tab_layout, mMyTeamFragment);
+            transaction.add(R.id.content_frame, mMyTeamFragment);
             transaction.commit();
+        } else {
+            Log.i(LOG_TAG, "MyTeamFrag found in content_frame.");
         }
 
         mMyTeamOvPresenter = new MyTeamOverallPresenter(getString(R.string.myteamname_default),
@@ -125,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
             // Construct new presenter and link to relevant view, add to ArrayList
 
             if (currLeagueType == LeagueTypes.OVERWATCH) {
-                MyTeamOWPlayerDetailFragment currMyTeamOWPDFrag = (MyTeamOWPlayerDetailFragment) suppFragmentManager.findFragmentById(R.id.tab_layout);
+                MyTeamOWPlayerDetailFragment currMyTeamOWPDFrag = (MyTeamOWPlayerDetailFragment) suppFragmentManager.findFragmentById(R.id.content_frame);
                 mMyTeamPDFragmentTsil.add(i, currMyTeamOWPDFrag);
 
                 if (mMyTeamPDFragmentTsil.get(i) == null) {
@@ -145,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.i(LOG_TAG, "PresenterTsil size is " + String.valueOf(mMyTeamPDPresenterTsil.size()));
 
             } else if (currLeagueType == LeagueTypes.REGULAR) {
-                MyTeamPlayerDetailFragment currMyTeamPDFrag = (MyTeamPlayerDetailFragment) suppFragmentManager.findFragmentById(R.id.tab_layout);
+                MyTeamPlayerDetailFragment currMyTeamPDFrag = (MyTeamPlayerDetailFragment) suppFragmentManager.findFragmentById(R.id.content_frame);
                 mMyTeamPDFragmentTsil.add(i, currMyTeamPDFrag);
 
                 if (mMyTeamPDFragmentTsil.get(i) == null) {

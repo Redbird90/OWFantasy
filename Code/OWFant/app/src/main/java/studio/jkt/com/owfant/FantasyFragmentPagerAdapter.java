@@ -19,20 +19,40 @@ class FantasyFragmentPagerAdapter extends FragmentPagerAdapter {
 
         Log.i(LOG_TAG, "tab position is " + String.valueOf(position));
 
-        switch (position) {
+        switch (position - 2) {
             case 0:
-                Fragment currTeamFragment = new MyTeamFragment();
+                Fragment currTeamFragment = MyTeamFragment.newInstance();
                 return currTeamFragment;
             case 1:
-                Fragment currVsFragment = new VSFragment();
+                Fragment currVsFragment = VSFragment.newInstance();
                 return currVsFragment;
+            case 2:
+                return new Fragment();
+            case 3:
+                return new Fragment();
             default:
-                return null;
+                return new Fragment();
         }
     }
 
     @Override
     public int getCount() {
         return numOfTabs;
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        switch (position) {
+            case 0:
+                return "My Team";
+            case 1:
+                return "VS";
+            case 2:
+                return "Players";
+            case 3:
+                return "League";
+            default:
+                return "Def Tab";
+        }
     }
 }
