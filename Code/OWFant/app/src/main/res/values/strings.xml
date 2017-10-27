@@ -11,4 +11,9 @@
     <string name="playerheroid_default">0</string>
     <string name="playerroleid_default">0</string>
     <string name="playernatlid_default">0</string>
+    <string name="username_default">Username</string>
+    <string name="tab_myteam_name">My Team</string>
+    <string name="tab_vs_name">VS</string>
+    <string name="tab_players_name">Players</string>
+    <string name="tab_league_name">League</string>
 </resources>

@@ -12,9 +12,13 @@ interface VSContract {
 
         void setUserTeamName(String name);
 
+        void setUserTeamOwner(String username);
+
         void setUserTeamRecord(String record);
 
         void setOtherTeamName(String name);
+
+        void setOtherTeamOwner(String username);
 
         void setOtherTeamRecord(String record);
 

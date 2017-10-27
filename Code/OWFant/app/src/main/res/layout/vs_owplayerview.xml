@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/vs_owplayer_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="0.4"
+        android:text="@string/playername_default"/>
+
+    <ImageView
+        android:id="@+id/vs_owplayer_role_imgview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.2"
+        android:contentDescription="@string/player_role_imgview_content_description"/>
+
+    <TextView
+        android:id="@+id/vs_owplayer_points_tv"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.3"
+        android:text="@string/playerpoints_default"/>
+
+    <TextView
+        android:id="@+id/vs_owplayer_team_tv"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.1"
+        android:text="@string/playerteam_default"/>
+
+</LinearLayout>

@@ -17,8 +17,10 @@ public class VSFragment extends Fragment implements VSContract.OverallView {
     public static final String ARG_PLAYERNUM = "playernumber";
     private VSContract.OverallPresenter vsOvPresenter;
     private TextView vsMyTeamTitleTV;
+    private TextView vsMyTeamOwnerTV;
     private TextView vsMyTeamRecordTV;
     private TextView vsOtherTeamTitleTV;
+    private TextView vsOtherTeamOwnerTV;
     private TextView vsOtherTeamRecordTV;
 
     public static VSFragment newInstance() {
@@ -33,8 +35,10 @@ public class VSFragment extends Fragment implements VSContract.OverallView {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.vs_overallview, container, false);
         vsMyTeamTitleTV = (TextView) rootView.findViewById(R.id.vs_myteam_title_tv);
+        vsMyTeamOwnerTV = (TextView) rootView.findViewById(R.id.vs_myteam_owner_tv);
         vsMyTeamRecordTV = (TextView) rootView.findViewById(R.id.vs_myteam_record_tv);
         vsOtherTeamTitleTV = (TextView) rootView.findViewById(R.id.vs_otherteam_title_tv);
+        vsOtherTeamOwnerTV = (TextView) rootView.findViewById(R.id.vs_otherteam_owner_tv);
         vsOtherTeamRecordTV = (TextView) rootView.findViewById(R.id.vs_otherteam_record_tv);
         return rootView;
 
@@ -55,6 +59,13 @@ public class VSFragment extends Fragment implements VSContract.OverallView {
     }
 
     @Override
+    public void setUserTeamOwner(String username) {
+
+        vsMyTeamOwnerTV.setText(username);
+
+    }
+
+    @Override
     public void setUserTeamRecord(String record) {
 
         vsMyTeamRecordTV.setText(record);
@@ -65,6 +76,13 @@ public class VSFragment extends Fragment implements VSContract.OverallView {
     public void setOtherTeamName(String name) {
 
         vsOtherTeamTitleTV.setText(name);
+
+    }
+
+    @Override
+    public void setOtherTeamOwner(String username) {
+
+        vsOtherTeamOwnerTV.setText(username);
 
     }
 
