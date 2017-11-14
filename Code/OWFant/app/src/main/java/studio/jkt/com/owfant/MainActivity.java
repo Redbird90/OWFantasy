@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -58,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         mViewPager.setAdapter(new FantasyFragmentPagerAdapter(getSupportFragmentManager()));
         //tabLayout.setupWithViewPager(mViewPager);
         //mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+/*        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
@@ -67,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onPageSelected(int position) {
                 Log.i(LOG_TAG, "onPageSelected, position is " + String.valueOf(position));
+                Toast.makeText(getApplicationContext(), "Page position " +
+                        String.valueOf(position), Toast.LENGTH_SHORT).show();
                 mViewPager.setCurrentItem(position);
             }
 
@@ -74,11 +77,13 @@ public class MainActivity extends AppCompatActivity {
             public void onPageScrollStateChanged(int state) {
 
             }
-        });
+        });*/
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 Log.i(LOG_TAG, "onTabSelected, position is " + String.valueOf(tab.getPosition()));
+                Toast.makeText(getApplicationContext(), "Page position " +
+                        String.valueOf(tab.getPosition()), Toast.LENGTH_SHORT).show();
                 mViewPager.setCurrentItem(tab.getPosition());
             }
 
@@ -93,6 +98,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         Log.i(LOG_TAG, "viewpager linked to adapter and listener added");
+
+/*
 
         FragmentManager suppFragmentManager = getSupportFragmentManager();
         MyTeamFragment mMyTeamFragment = (MyTeamFragment)
@@ -163,8 +170,9 @@ public class MainActivity extends AppCompatActivity {
 
             }
         }
+*/
+
 
     }
 
 }
-

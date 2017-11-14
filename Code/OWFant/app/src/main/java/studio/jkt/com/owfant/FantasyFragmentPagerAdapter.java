@@ -3,6 +3,7 @@ package studio.jkt.com.owfant;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.util.Log;
 
 class FantasyFragmentPagerAdapter extends FragmentPagerAdapter {
@@ -19,11 +20,13 @@ class FantasyFragmentPagerAdapter extends FragmentPagerAdapter {
 
         Log.i(LOG_TAG, "tab position is " + String.valueOf(position));
 
-        switch (position - 2) {
+        switch (position) {
             case 0:
+                Log.i(LOG_TAG, "returning myteamfrag");
                 Fragment currTeamFragment = MyTeamFragment.newInstance();
                 return currTeamFragment;
             case 1:
+                Log.i(LOG_TAG, "returning vsfrag");
                 Fragment currVsFragment = VSFragment.newInstance();
                 return currVsFragment;
             case 2:

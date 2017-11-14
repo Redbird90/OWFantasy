@@ -34,6 +34,8 @@ public class MyTeamFragment extends android.support.v4.app.Fragment implements
         View rootView = inflater.inflate(R.layout.myteam_overallview, container, false);
         myTeamTitleTV = (TextView) rootView.findViewById(R.id.myteam_title_tv);
         myTeamRecordTV = (TextView) rootView.findViewById(R.id.myteam_record_tv);
+        myTeamTitleTV.setText(getString(R.string.myteamname_default));
+        myTeamRecordTV.setText(getString(R.string.myteamrecord_default));
         return rootView;
 
     }
